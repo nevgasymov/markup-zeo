@@ -412,9 +412,48 @@ input {
   background: #f2f6f8;
   padding: 32px 0;
   margin-bottom: 50px;
+
+  .btn-prev,
+  .btn-next {
+    background: rgba(255, 255, 255, .72);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07);
+    position: absolute;
+    top: 113px;
+    left: -27px;
+    z-index: 21;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: none;
+
+    &:before {
+      content: '';
+      width: 11px;
+      height: 20px;
+      background: url("../images/main-sprite.png") -206px 0 no-repeat;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    &:after {
+      display: none;
+    }
+  }
+  .btn-next {
+    left: auto;
+    right: -27px;
+
+    &:before {
+      background-position: -209px -42px;
+    }
+  }
 }
 .articles-holder {
   position: relative;
+  overflow: visible !important;
 
   .heading {
     position: relative;
@@ -804,13 +843,13 @@ only screen and ( min-resolution: 192dpi),
 only screen and ( min-resolution: 2dppx) {
   .logo {
     background: url("../images/main-sprite@2x.png");
-    background-size: 200px 62px;
+    background-size: 220px 62px;
   }
   .btn {
     .download-icon {
       &:before {
         background: url("../images/main-sprite@2x.png") -168px -13px;
-        background-size: 200px 62px;
+        background-size: 220px 62px;
       }
     }
   }
@@ -818,22 +857,32 @@ only screen and ( min-resolution: 2dppx) {
     li {
       &:before {
         background: url("../images/main-sprite@2x.png") -41px -31px no-repeat;
-        background-size: 200px 62px;
+        background-size: 220px 62px;
       }
       &.run:before {
         background-position: -76px -33px;
-        background-size: 200px 62px;
+        background-size: 220px 62px;
       }
       &.scan:before {
         background-position: -119px -33px;
-        background-size: 200px 62px;
+        background-size: 220px 62px;
       }
     }
   }
   .review li {
     background: url("../images/main-sprite@2x.png") no-repeat 0 -41px;
-    background-size: 200px 62px;
+    background-size: 220px 62px;
    }
+  .features {
+    .btn-prev:before {
+      background: url("../images/main-sprite@2x.png") no-repeat -206px 0;
+      background-size: 220px 62px;
+    }
+    .btn-next:before {
+      background: url("../images/main-sprite@2x.png") no-repeat -209px -42px;
+      background-size: 220px 62px;
+    }
+  }
 }
 @media (max-width: 1000px) {
   .steps-holder {
@@ -979,37 +1028,22 @@ only screen and ( min-resolution: 2dppx) {
     }
   }
   .features-list {
-    width: 100%;
-    justify-content: center;
-    padding: 20px 10% 0;
-
-    li {
-      margin: 5px 7px !important;
-      width: auto;
-      height: auto;
-    }
-    a {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 173, 255, .3);
-      background: rgba(255, 255, 255, .6);
-      overflow: hidden;
-
-      &:before,
-      &:after,
-      svg {
-        display: none;
-      }
-      &.active {
-        background: #00adff !important;
-      }
-    }
+    display: none;
   }
   .testimonials {
     .qute,
     footer {
       padding: 15px;
+    }
+  }
+  .features {
+    .btn-prev {
+      display: block;
+      left: -70px;
+    }
+    .btn-next {
+      display: block;
+      right: -70px;
     }
   }
 }
@@ -1059,6 +1093,20 @@ only screen and ( min-resolution: 2dppx) {
     }
   }
 }
+@media (max-width: 480px)  {
+  .features {
+    overflow: hidden;
+
+    .btn-prev {
+      display: block;
+      left: -27px;
+    }
+    .btn-next {
+      display: block;
+      right: -27px;
+    }
+  }
+}
 @media (max-width: 400px) {
   .steps {
     li {
@@ -1098,5 +1146,10 @@ only screen and ( min-resolution: 2dppx) {
     .col {
       width: 100% !important;
     }
+  }
+  .rating-info {
+    overflow: hidden;
+    margin-left: -15px;
+    margin-right: -15px;
   }
 }
