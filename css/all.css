@@ -211,6 +211,7 @@ input {
   position: absolute;
   top: 50%;
   margin-top: -14px;
+  z-index: 20;
 }
 .logo a {
   text-indent: -9999px;
@@ -947,7 +948,6 @@ input {
     display: block;
     position: relative;
     margin: 0 auto;
-    z-index: 20;
   }
 
   .slogan {

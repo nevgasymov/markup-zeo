@@ -201,6 +201,7 @@ input {
   position: absolute;
   top: 50%;
   margin-top: -14px;
+  z-index: 20;
 
   a {
     text-indent: -9999px;
@@ -1012,7 +1013,6 @@ only screen and ( min-resolution: 2dppx) {
     display: block;
     position: relative;
     margin: 0 auto;
-    z-index: 20;
   }
   .slogan {
     display: none;
