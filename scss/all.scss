@@ -859,6 +859,9 @@ only screen and ( min-resolution: 2dppx) {
       &:nth-child(8n+5) {
         margin-left: 66px;
       }
+      &:last-child {
+        margin-left: 122px;
+      }
     }
   }
   .articles-holder .item {
@@ -896,13 +899,28 @@ only screen and ( min-resolution: 2dppx) {
       }
     }
   }
+  .features-holder {
+    justify-content: center;
+
+    .col {
+      width: auto;
+
+      + .col {
+        width: 320px;
+      }
+    }
+  }
+  .articles-holder {
+    margin-top: 80px;
+  }
   .features-list {
     width: 396px;
 
     li {
       &:nth-child(6),
       &:nth-child(15),
-      &:nth-child(8n+5) {
+      &:nth-child(8n+5),
+      &:last-child {
         margin-left: 8px;
       }
       &:nth-child(6n+4) {
@@ -944,6 +962,9 @@ only screen and ( min-resolution: 2dppx) {
     .logos {
       flex-wrap: wrap;
     }
+  }
+  .articles-holder {
+    margin: 0;
   }
   .features-holder {
     flex-direction: column;
